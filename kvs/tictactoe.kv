@@ -1,0 +1,98 @@
+#: kivy 2.0
+#: include ./kvs/leaderboard.kv
+
+<Tile@Button>:
+    font_size: '45sp'
+    color: 1 , 2 , 0 , 1
+
+<TicTacToe>:
+    name: 'tictactoe'
+    AnchorLayout:
+        anchor_y: 'top'
+        MenuScreen:
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: (1, 0.9)
+            GridLayout:
+                rows: 3
+                cols: 3
+                Tile:
+                    name: '00'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '01'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '02'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '10'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '11'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '12'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '20'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '21'
+                    on_press: root.make_move(self);
+                Tile:
+                    name: '22'
+                    on_press: root.make_move(self);
+            BoxLayout:
+                orientation:'vertical'
+                Label:
+                    text:'Leaderboard'
+                    font_size: '36dp'
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'top'
+                    GridLayout:
+                        cols: 2
+                        rows: 5
+                        Label:
+                            text: 'Players'
+                            font_size: '22dp'
+                        Label:
+                            text: 'Scores'
+                            font_size: '22dp'
+                        Label:
+                            id: player1.display_name
+                            font_size: '15dp'
+                        Label:
+                            id: player1.score
+                            text: '0'
+                            font_size: '15dp'
+                        Label:
+                            id: player2.display_name
+                            font_size: '15dp'
+                        Label:
+                            id: player2.score
+                            text: '0'
+                            font_size: '15dp'
+                        Label:
+                            text: 'Draw'
+                            font_size: '15dp'
+                        Label:
+                            text: '0'
+                            font_size: '15dp'
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'top'
+                    BoxLayout:
+                        orientation:'horizontal'
+                        size_hint: (0.8, 0.2)
+                        spacing: '10dp'
+                        Button:
+                            text: 'Restart'
+                            font_size: '16dp'
+                            on_press: root.reset_scores()
+                        Button:
+                            text: 'Reset Leaderboard'
+                            font_size: '16dp'
+                            on_press: root.reset_scores()
+
