@@ -1,5 +1,4 @@
 #: kivy 2.0
-#: include ./kvs/leaderboard.kv
 
 <Tile@Button>:
     font_size: '45sp'
@@ -17,30 +16,40 @@
                 rows: 3
                 cols: 3
                 Tile:
+                    id: root.tile_00
                     name: '00'
+                    text: ''
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_01
                     name: '01'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_02
                     name: '02'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_10
                     name: '10'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_11
                     name: '11'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_12
                     name: '12'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_20
                     name: '20'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_21
                     name: '21'
                     on_press: root.make_move(self);
                 Tile:
+                    id: root.tile_22
                     name: '22'
                     on_press: root.make_move(self);
             BoxLayout:
@@ -61,18 +70,16 @@
                             text: 'Scores'
                             font_size: '22dp'
                         Label:
-                            id: player1.display_name
+                            text: '{}{} ({})'.format('*' if root.player1.active else '', root.player1.name, root.player1.dice)
                             font_size: '15dp'
                         Label:
-                            id: player1.score
-                            text: '0'
+                            text: str(root.player1.score)
                             font_size: '15dp'
                         Label:
-                            id: player2.display_name
+                            text: '{}{} ({})'.format('*' if root.player2.active else '', root.player2.name, root.player2.dice)
                             font_size: '15dp'
                         Label:
-                            id: player2.score
-                            text: '0'
+                            text: str(root.player2.score)
                             font_size: '15dp'
                         Label:
                             text: 'Draw'
@@ -90,9 +97,8 @@
                         Button:
                             text: 'Restart'
                             font_size: '16dp'
-                            on_press: root.reset_scores()
+                            on_press: root.restart()
                         Button:
                             text: 'Reset Leaderboard'
                             font_size: '16dp'
                             on_press: root.reset_scores()
-
