@@ -1,0 +1,67 @@
+#:kivy 2.0
+#: import Screen kivy.uix.screenmanager
+
+<Button>:
+    background_color: (1, 1, 1, 0.3)
+
+<MenuScreen@Screen>:
+    name: 'menu'
+    canvas:
+        Color:
+            rgba: (1.0, 1.0, 1.0, 1.0)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        size_hint: (0.4, 0.4)
+        orientation:'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.79}
+        padding: ('0dp', '20dp', '0dp', '50dp')
+        opacity: 10 if root.manager.ids.tictactoe.is_draw else 0
+        BoxLayout:
+            orientation:'horizontal'
+            Image:
+                source: 'assets/images/X.png'
+            Image:
+                source: 'assets/images/O.png'
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                text: 'DRAW!'
+                font_size: self.width/7
+
+    BoxLayout:
+        size_hint: (0.4, 0.4)
+        orientation:'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.79}
+        padding: ('0dp', '20dp', '0dp', '50dp')
+        opacity: 10 if not root.manager.ids.tictactoe.is_draw else 0
+        BoxLayout:
+            orientation:'horizontal'
+            Image:
+                source: root.manager.ids.tictactoe.winner_dice_image
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                text: 'WINNER!'
+                font_size: self.width/7
+
+    BoxLayout:
+        size_hint: (0.5, 0.5)
+        orientation:'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.4}
+        Button:
+            text: 'PLAY AGAIN'
+            font_size: self.width/15
+            on_press: app.root.current = 'tictactoe'
+        Button:
+            text: 'RESET GAME'
+            font_size: self.width/15
+            on_press: app.root.ids.tictactoe.reset_scores(); app.root.current = 'tictactoe';
+        Button:
+            text: 'SHARE'
+            font_size: self.width/15
+        Button:
+            text: 'END GAME'
+            font_size: self.width/15
+            on_press: exit()

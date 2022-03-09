@@ -1,0 +1,13 @@
+#: kivy 2.0
+#: import SplashScreen screens.splash
+
+<SplashScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        id: logo
+        orientation:'vertical'

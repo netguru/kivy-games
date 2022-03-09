@@ -1,0 +1,95 @@
+#: kivy 2.0
+#: import TicTacToe screens.tictactoe
+#: import StringProperty kivy.properties.StringProperty
+
+<Label>:
+    markup: True
+    color: (.27, .27, .27, 1)
+
+
+<PlayerDataLayout@BoxLayout>
+    orientation:'vertical'
+    dice_image: StringProperty('assets/images/X.png')
+    score: ''
+    canvas.before:
+        Color:
+            rgba: (0.88, 0.88, 0.88, 1.0)
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+    BoxLayout:
+        orientation:'horizontal'
+        Label:
+            text: 'PLAYER '
+            font_size: self.width/5
+            size_hint_x: 0.7
+            allow_stretch: True
+        Image:
+            source: str(root.dice_image)
+            size_hint_x: 0.3
+            allow_stretch: True
+    Label:
+        canvas.before:
+            Color:
+                rgba: (0.88, 0.88, 0.88, 1.0)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        size_hint_y: None
+        height: 1
+    Label:
+        canvas.before:
+            Color:
+                rgba: (0.65, 0.70, 0.70, 0.23)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        text: root.score
+        font_size: self.width/6
+        bold: True
+
+<Tile>:
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    on_press: app.root.ids.tictactoe.make_move(self)
+
+
+<TicTacToe>:
+    id: 'tictactoe'
+    name: 'tictactoe'
+    canvas:
+        Color:
+            rgba: (1.0, 1.0, 1.0, 1.0)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    AnchorLayout:
+        anchor_y: 'top'
+        BoxLayout:
+            orientation:'vertical'
+            BoxLayout:
+                orientation:'horizontal'
+                size_hint: (1, 0.3)
+                padding: ('20dp', '20dp', '20dp', '10dp')
+                spacing: '10dp'
+                PlayerDataLayout:
+                    dice_image: root.player1.active_dice_image
+                    score: str(root.player1.score)
+                PlayerDataLayout:
+                    dice_image: root.player2.active_dice_image
+                    score: str(root.player2.score)
+            GridLayout:
+                id: grid_layout
+                spacing: 2
+                rows: root.rows
+                cols: root.cols
+                canvas.before:
+                    Color:
+                        rgba: (0.88, 0.88, 0.88, 1.0)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
