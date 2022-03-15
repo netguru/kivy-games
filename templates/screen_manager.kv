@@ -1,11 +1,12 @@
 #: kivy 2.0
+#: import ScreenManager kivy.uix.screenmanager
 #: import CardTransition kivy.uix.screenmanager.CardTransition
 #: include ./templates/splash.kv
 #: include ./templates/tictactoe.kv
 #: include ./templates/menu.kv
 
 
-RootScreenManager:
+ScreenManager:
     id: manager
     transition: CardTransition()
     SplashScreen:

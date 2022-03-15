@@ -1,11 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager
 from screens.tictactoe import Tile
-
-
-class RootScreenManager(ScreenManager):
-    pass
 
 
 class MainApp(App):
