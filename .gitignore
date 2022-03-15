@@ -128,5 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+<<<<<<< HEAD
 # VS Code
 .vscode
+=======
+# vscode
+.vscode/
+>>>>>>> b50d8b1 (Added Menu screen)

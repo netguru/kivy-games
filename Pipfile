@@ -5,8 +5,6 @@ name = "pypi"
 
 [packages]
 kivy = "*"
-kivymd = "*"
-black = "*"
 
 [dev-packages]
 
