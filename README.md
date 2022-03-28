@@ -1,14 +1,15 @@
-# kivy-games
+# Kivy-games
 
 **Tic-Tac-Toe** game application designed and developed in Kivy framework.
 
 Read more about [Building Cross-Platform GUI Applications in Kivy](https://www.netguru.com/blog/building-cross-platform-gui-applications-in-kivy)
-## Installation:
+
+## Installation
 ```
 pip install kivy
 ```
 
-## Usages:
+## Usages
 
 ```
 python main.py
