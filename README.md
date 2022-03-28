@@ -16,5 +16,9 @@ python main.py
 
 ## Demo
 
-![Demo](./assets/videos/demo_video.gif)
+<div align="center">
+  
+  ![Demo](./assets/videos/demo_video.gif)  
+</div>
+
 
